@@ -14,3 +14,6 @@ A Jupyter-notebook tool that **scrapes any news article, distills the key ideas 
 | GUI, no code needed | Every action lives behind friendly Jupyter widgets | `ipywidgets`, `IPython.display` |
 
 ---
+## 🖼 Example Output
+
+![AI Summarizer Output](AI_Summarizer_Output.png)
