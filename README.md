@@ -14,12 +14,3 @@ A Jupyter-notebook tool that **scrapes any news article, distills the key ideas 
 | GUI, no code needed | Every action lives behind friendly Jupyter widgets | `ipywidgets`, `IPython.display` |
 
 ---
-
-## 🛠  Installation
-
-> **Tested on Python 3.10+, macOS 14 & Windows 10/11**
-
-1. **Clone** the repository  
-   ```bash
-   git clone https://github.com/<your-user>/<repo>.git
-   cd <repo>
