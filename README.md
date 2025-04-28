@@ -1,19 +1,90 @@
-# News Summarizer & Instagram Post Generator
-A Jupyter-notebook tool that **scrapes any news article, distills the key ideas with local LLMs, and instantly formats the output as an Instagram-ready post** – emojis, hashtags, headline, everything.
+# 🎩 LLM Web Summarizer
+
+> Your pocket newsroom: fetch, summarize, and spin news articles into scroll-stopping Instagram captions powered by local LLM magic! ✨
+
+![Demo Output](AI_Summarizer_Output.png)
 
 ---
 
-## ✨  Key features
-| Feature | What it does | Tech under the hood |
-|---------|--------------|---------------------|
-| One-click scraping | Pulls full article text with Selenium (undetected-chromedriver) and falls back to a plain `requests` fetch if headless Chrome fails | `undetected_chromedriver`, `selenium`, `BeautifulSoup` |
-| Local-LLM summaries | Runs multiple Ollama models in parallel (default: **llama3.2**, **gemma3**, **deepseek-r1:8b**) so you can compare tones / lengths | `ollama` REST chat API |
-| Format switcher | “Short”, “Bullet Points”, or “Detailed” summaries chosen from a toggle | `ipywidgets` |
-| IG-post builder | Generates a punchy headline, selects context-aware emojis & hashtags, and returns a polished caption | Regular-expression helpers |
-| Instant download | Saves the most-recent summary to `summary_YYYYMMDD_HHMMSS.txt` | `datetime` timestamping |
-| GUI, no code needed | Every action lives behind friendly Jupyter widgets | `ipywidgets`, `IPython.display` |
+## 🎯 Project Goal
+
+Transform any public news URL into two ready-to-share deliverables in one click:
+1. **Balanced 5–7 sentence summary** under a “senior news editor” prompt  
+2. **Punchy 2–3 sentence Instagram caption** with context-aware emojis & hashtags  
+
+All while comparing multiple Ollama LLMs side-by-side.
 
 ---
-## 🖼 Example Output
 
-![AI Summarizer Output](AI_Summarizer_Output.png)
+## 🚀 Key Features
+
+- **🕵️‍♂️ Stealthy Scraper**  
+  Undetected Selenium → strips ads, modals & cookie banners → HTTP fallback → caching  
+- **✍️ Journalist-Grade Summaries**  
+  No more “text too short” apologies—just crisp, balanced overviews  
+- **📸 Insta-Alchemist**  
+  Converts summaries into engaging captions: emojis, hashtags, and brand-safe flair  
+- **⚡ Parallel Model Arena**  
+  Spin up llama3.x, gemma3, deepseek-r1 (and friends) in threads with live progress bars  
+- **🎨 Customizable Voice**  
+  Drop your own `soft_prompt.txt` to dial in any tone—from “hard-news anchor” to “travel blogger”
+
+---
+
+## 🧠 How It Works
+
+```python
+# 1. fetch_article(url)
+#    • Try headless Chrome → remove overlays → fallback to requests
+#    • Return (title, full_text)
+
+# 2. summarize(text)
+#    • System prompt: “You’re a senior news editor…”
+#    • 5–7 sentence balanced summary
+
+# 3. build_instagram_post(summary)
+#    • System prompt: “You are a social media strategist…”
+#    • 2–3 sentence caption with emojis & hashtags
+
+# 4. parallel_llm(func, text, models)
+#    • ThreadPoolExecutor + ipywidgets progress → stream each model’s output
+```
+
+---
+
+## 🎨 Tech Stack
+
+- **Python 3.8+**  
+- **Jupyter Notebook** + **ipywidgets**  
+- **undetected_chromedriver** & **Selenium**  
+- **BeautifulSoup** for parsing  
+- **Ollama** local LLM API  
+- **ThreadPoolExecutor** for parallelism  
+
+---
+
+## ⚙️ Installation & Usage
+
+1. **Clone & Install**  
+   ```bash
+   git clone https://github.com/yourusername/LLM_Web_Summarizer.git
+   cd LLM_Web_Summarizer
+   pip install -r requirements.txt
+   ```  
+2. **(Optional) Customize Your Voice**  
+   ```bash
+   echo "You’re a globe-trotting editor with a knack for storytelling…" > soft_prompt.txt
+   ```  
+3. **Launch the Notebook**  
+   ```bash
+   jupyter notebook News_to_Instagram.ipynb
+   ```  
+4. **Paste, Slide & Click**  
+   - Paste any article URL  
+   - Tweak Temperature, Top-p & Max-Tokens  
+   - Select your favorite models  
+   - Click **🧠 Summarize** or **📸 Generate Post**  
+   - Copy & wow your audience!
+
+---
+
