@@ -77,7 +77,7 @@ All while comparing multiple Ollama LLMs side-by-side.
    ```  
 3. **Launch the Notebook**  
    ```bash
-   jupyter notebook News_to_Instagram.ipynb
+   jupyter notebook News_To_Instagram.ipynb
    ```  
 4. **Paste, Slide & Click**  
    - Paste any article URL  
